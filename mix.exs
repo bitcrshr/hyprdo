@@ -53,7 +53,9 @@ defmodule Hyprdo.MixProject do
       {:bandit, "~> 1.5"},
       {:protobuf, "~> 0.14.1"},
       {:grpc, "~> 0.10"},
-      {:grpc_reflection, "~> 0.1"}
+      {:grpc_reflection, "~> 0.1"},
+      {:ecto, "~> 3.10"},
+      {:ecto_sqlite3, "~> 0.17"}
     ]
   end
 

@@ -4,3 +4,4 @@ assets/
 test/
 priv/*
 !priv/api
+!priv/repo

@@ -28,8 +28,12 @@
             buf
             protoc-gen-elixir
 
+            # sqlite
+            sqlite
+
             # util
             ranger
+            grpcurl
           ];
         };
       }

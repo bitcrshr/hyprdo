@@ -13,6 +13,7 @@ defmodule Hyprdo.Application do
       {Phoenix.PubSub, name: Hyprdo.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: Hyprdo.Finch},
+      Hyprdo.Repo,
       # Start a worker by calling: Hyprdo.Worker.start_link(arg)
       # {Hyprdo.Worker, arg},
       # Start to serve requests, typically the last entry

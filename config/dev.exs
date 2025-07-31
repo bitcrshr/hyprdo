@@ -45,6 +45,12 @@ config :hyprdo, HyprdoWeb.Endpoint,
 # Enable dev routes for dashboard and mailbox
 config :hyprdo, dev_routes: true
 
+config :hyprdo,
+  ecto_repos: [Hyprdo.Repo]
+
+config :hyprdo, Hyprdo.Repo,
+  database: "devdb.sqlite"
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 

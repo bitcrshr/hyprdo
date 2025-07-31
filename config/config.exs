@@ -7,6 +7,13 @@
 # General application configuration
 import Config
 
+config :hyprdo, Hyprdo.Repo,
+  database: "hyprdo_repo",
+  username: "user",
+  password: "pass",
+  hostname: "localhost",
+  migration_primary_key: [name: :id, type: :uuid]
+
 config :hyprdo,
   generators: [timestamp_type: :utc_datetime]
 
