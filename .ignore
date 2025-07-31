@@ -1,0 +1,6 @@
+deps/
+_build/
+assets/
+test/
+priv/*
+!priv/api

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package hyprdo.tasks.v1;
+
+import "tasks/v1/task.proto";
+
+import "google/protobuf/empty.proto";
+
+service TasksService {
+  
+  rpc GetOneTask(GetOneTaskRequest) returns (GetOneTaskResponse) {}
+  rpc ListTasks(ListTasksRequest) returns (ListTasksResponse) {}
+  rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse) {}
+  rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse) {}
+  rpc DeleteTask(DeleteTaskRequest) returns (google.protobuf.Empty) {}
+
+}
+
+
+
