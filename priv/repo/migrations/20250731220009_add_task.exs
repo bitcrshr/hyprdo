@@ -3,8 +3,8 @@ defmodule Hyprdo.Repo.Migrations.AddTask do
 
   def change do
     create table(:tasks) do
-      add :title, :string
-      add :description, :string
+      add :title, :string, [null: false]
+      add :description, :string, [null: false]
     end
   end
 end

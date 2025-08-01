@@ -3,7 +3,7 @@ managed:
   enabled: true
 plugins:
   - local: protoc-gen-elixir
-    out: lib/api 
+    out: lib/hyprdo/api 
     opt:
       - plugins=grpc
       - include_docs=true

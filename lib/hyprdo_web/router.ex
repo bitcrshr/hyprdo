@@ -1,6 +1,17 @@
 defmodule HyprdoWeb.Router do
   use HyprdoWeb, :router
 
+  import Phoenix.LiveView.Router
+
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_live_flash
+    plug :put_root_layout, html: {HyprdoWeb.Layouts, :root}
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -8,7 +19,13 @@ defmodule HyprdoWeb.Router do
   scope "/api", HyprdoWeb do
     pipe_through :api
 
-    get "/tasks", TasksController, :hello
+    # get "/tasks", TasksController, :hello
+  end
+
+  scope "/", HyprdoWeb do
+    pipe_through :browser
+
+    live "/tasks", Live.Tasks 
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

@@ -189,7 +189,7 @@ defmodule Hyprdo.Tasks.V1.ListTasksResponse do
       name: "ListTasksResponse",
       field: [
         %Google.Protobuf.FieldDescriptorProto{
-          name: "task",
+          name: "tasks",
           extendee: nil,
           number: 1,
           label: :LABEL_REPEATED,
@@ -198,7 +198,7 @@ defmodule Hyprdo.Tasks.V1.ListTasksResponse do
           default_value: nil,
           options: nil,
           oneof_index: nil,
-          json_name: "task",
+          json_name: "tasks",
           proto3_optional: nil,
           __unknown_fields__: []
         }
@@ -215,7 +215,7 @@ defmodule Hyprdo.Tasks.V1.ListTasksResponse do
     }
   end
 
-  field :task, 1, repeated: true, type: Hyprdo.Tasks.V1.Task
+  field :tasks, 1, repeated: true, type: Hyprdo.Tasks.V1.Task
 end
 
 defmodule Hyprdo.Tasks.V1.CreateTaskRequest do

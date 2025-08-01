@@ -21,7 +21,7 @@ message ListTasksRequest {
   google.protobuf.FieldMask list_mask = 99;
 }
 message ListTasksResponse {
-  repeated Task task = 1;
+  repeated Task tasks = 1;
 }
 
 message CreateTaskRequest {

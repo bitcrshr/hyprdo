@@ -26,7 +26,7 @@ config :hyprdo, HyprdoWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Hyprdo.PubSub,
-  live_view: [signing_salt: "BzD8Oxr/"]
+  live_view: [signing_salt: "D5E1CwWtCmKxmWx1kOXMmgOLUPeFPpVk"]
 
 # Configures the mailer
 #

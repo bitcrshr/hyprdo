@@ -34,6 +34,8 @@ defmodule Hyprdo.MixProject do
     [
       {:phoenix, "~> 1.7.21"},
       {:phoenix_live_dashboard, "~> 0.8.3"},
+      {:phoenix_live_view, "~> 1.1.2"},
+      {:floki, ">= 0.30.0", only: :test},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
       {:heroicons,
@@ -55,7 +57,8 @@ defmodule Hyprdo.MixProject do
       {:grpc, "~> 0.10"},
       {:grpc_reflection, "~> 0.1"},
       {:ecto, "~> 3.10"},
-      {:ecto_sqlite3, "~> 0.17"}
+      {:ecto_sqlite3, "~> 0.17"},
+      {:drops, "~> 0.2.0"}
     ]
   end
 
