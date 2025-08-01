@@ -47,50 +47,63 @@ defmodule HyprdoStreams.Server do
   @spec create_task(TasksV1.CreateTaskRequest.t(), GRPC.Server.Stream.t()) ::
           TasksV1.CreateTaskResponse.t()
   def create_task(req, _stream) do
-    task = case req.task do
-      [title: ""] ->
-        raise RPCError, status: :not_found, message: "task.title is required"
+    task =
+      case req.task do
+        [title: ""] ->
+          raise RPCError, status: :not_found, message: "task.title is required"
 
-      _ ->
-        case Repo.insert(%Model.Task{
-          title: req.task.title,
-          description: req.task.description,
-        }, [returning: true]) do
-          {:ok, task} -> %TasksV1.Task{
-              id: task.id,
-              title: task.title,
-              description: task.description,
-            }
-          {:error, err} -> raise RPCError, status: :unknown, message: "error: #{err.errors}"
-        end
-    end
+        _ ->
+          case Repo.insert(
+                 %Model.Task{
+                   title: req.task.title,
+                   description: req.task.description
+                 },
+                 returning: true
+               ) do
+            {:ok, task} ->
+              Phoenix.PubSub.broadcast!(
+                Hyprdo.PubSub,
+                "task-crud",
+                task
+              )
+
+              %TasksV1.Task{
+                id: task.id,
+                title: task.title,
+                description: task.description
+              }
+
+            {:error, err} ->
+              raise RPCError, status: :unknown, message: "error: #{err.errors}"
+          end
+      end
 
     %TasksV1.CreateTaskResponse{
-      task: task,
+      task: task
     }
   end
 
-  @spec list_tasks(TasksV1.ListTasksRequest.t(), GRPC.Server.Stream.t()) :: TasksV1.ListTasksResponse.t()
+  @spec list_tasks(TasksV1.ListTasksRequest.t(), GRPC.Server.Stream.t()) ::
+          TasksV1.ListTasksResponse.t()
   def list_tasks(_req, _stream) do
     %TasksV1.ListTasksResponse{
-      tasks: Enum.map(Repo.all(Model.Task), fn t -> 
-        %TasksV1.Task{
-          id: t.id,
-          title: t.title,
-          description: t.description,
-        }
-      end
-      )
+      tasks:
+        Enum.map(Repo.all(Model.Task), fn t ->
+          %TasksV1.Task{
+            id: t.id,
+            title: t.title,
+            description: t.description
+          }
+        end)
     }
   end
 
-  @spec delete_task(TasksV1.DeleteTaskRequest.t(), GRPC.Server.Stream.t()) :: TasksV1.DeleteTaskResponse.t()
+  @spec delete_task(TasksV1.DeleteTaskRequest.t(), GRPC.Server.Stream.t()) ::
+          TasksV1.DeleteTaskResponse.t()
   def delete_task(req, _stream) do
     case req.id do
       "" -> raise RPCError, status: :uknown, message: "id is required"
-      id -> Repo.delete(
-          %Model.Task{ id: id }
-        )
+      id -> Repo.delete(%Model.Task{id: id})
     end
 
     %Google.Protobuf.Empty{}
