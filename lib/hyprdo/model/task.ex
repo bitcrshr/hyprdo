@@ -6,6 +6,8 @@ defmodule Hyprdo.Model.Task do
   schema "tasks" do
     field :title, :string
     field :description, :string
+
+    timestamps(inserted_at: :created_at, type: :utc_datetime)
   end
 
   def changeset(task, params \\ %{}) do
