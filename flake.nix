@@ -34,6 +34,7 @@
             # util
             ranger
             grpcurl
+            inotify-tools
           ];
         };
       }

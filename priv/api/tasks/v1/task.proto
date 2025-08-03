@@ -3,11 +3,35 @@ syntax = "proto3";
 package hyprdo.tasks.v1;
 
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+import "google/api/field_behavior.proto";
 
 message Task {
-  string id = 1;
-  string title = 2;
-  string description = 3;
+  string id = 1 [(google.api.field_behavior) = OUTPUT_ONLY,
+                 (google.api.field_behavior) = IMMUTABLE];
+  string title = 2 [(google.api.field_behavior) = REQUIRED];
+  string description = 3 [(google.api.field_behavior) = OPTIONAL];
+  Status status = 4 [(google.api.field_behavior) = NON_EMPTY_DEFAULT];
+
+  google.protobuf.Timestamp created_at = 5 [(google.api.field_behavior) = OUTPUT_ONLY,
+                                            (google.api.field_behavior) = IMMUTABLE];
+
+  google.protobuf.Timestamp updated_at = 6;
+  google.protobuf.Timestamp due_at = 7 [(google.api.field_behavior) = OPTIONAL];
+
+  google.protobuf.Duration estimated_time = 8 [(google.api.field_behavior) = OPTIONAL];
+  google.protobuf.Duration actual_time = 9 [(google.api.field_behavior) = OPTIONAL];
+
+
+  enum Status {
+    TASK_STATUS_UNSPECIFIED = 0;
+    TODO = 1;
+    IN_PROGRESS = 2;
+    COMPLETED = 3;
+    BLOCKED = 4;
+  }
 };
 
 message GetOneTaskRequest {

@@ -2,4 +2,143 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+
 /* This file is for your main application CSS */
+@layer base {
+
+  body {
+    font-family: 'Inter';
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Inter';
+    font-weight: 700;
+  }
+
+  :root {
+    --text-50: #eef0f6;
+    --text-100: #dde1ee;
+    --text-200: #bbc4dd;
+    --text-300: #99a6cc;
+    --text-400: #7788bb;
+    --text-500: #556aaa;
+    --text-600: #445588;
+    --text-700: #334066;
+    --text-800: #222b44;
+    --text-900: #111522;
+    --text-950: #090b11;
+    
+    --background-50: #eef1f7;
+    --background-100: #dce2ef;
+    --background-200: #b9c6df;
+    --background-300: #96a9cf;
+    --background-400: #738cbf;
+    --background-500: #5070af;
+    --background-600: #40598c;
+    --background-700: #304369;
+    --background-800: #202d46;
+    --background-900: #101623;
+    --background-950: #080b11;
+    
+    --primary-50: #edf0f8;
+    --primary-100: #dbe0f0;
+    --primary-200: #b7c1e1;
+    --primary-300: #92a2d3;
+    --primary-400: #6e84c4;
+    --primary-500: #4a65b5;
+    --primary-600: #3b5191;
+    --primary-700: #2c3c6d;
+    --primary-800: #1e2848;
+    --primary-900: #0f1424;
+    --primary-950: #070a12;
+    
+    --secondary-50: #eceff8;
+    --secondary-100: #dae0f1;
+    --secondary-200: #b5c0e3;
+    --secondary-300: #8fa1d6;
+    --secondary-400: #6a82c8;
+    --secondary-500: #4562ba;
+    --secondary-600: #374f95;
+    --secondary-700: #293b70;
+    --secondary-800: #1c274a;
+    --secondary-900: #0e1425;
+    --secondary-950: #070a13;
+    
+    --accent-50: #eceff9;
+    --accent-100: #d9dff2;
+    --accent-200: #b3bfe6;
+    --accent-300: #8c9fd9;
+    --accent-400: #667fcc;
+    --accent-500: #4060bf;
+    --accent-600: #334c99;
+    --accent-700: #263973;
+    --accent-800: #19264d;
+    --accent-900: #0d1326;
+    --accent-950: #060a13;
+    
+  }
+  .dark {
+    --text-50: #090b11;
+    --text-100: #111522;
+    --text-200: #222b44;
+    --text-300: #334066;
+    --text-400: #445588;
+    --text-500: #556aaa;
+    --text-600: #7788bb;
+    --text-700: #99a6cc;
+    --text-800: #bbc4dd;
+    --text-900: #dde1ee;
+    --text-950: #eef0f6;
+    
+    --background-50: #080b11;
+    --background-100: #101623;
+    --background-200: #202d46;
+    --background-300: #304369;
+    --background-400: #40598c;
+    --background-500: #5070af;
+    --background-600: #738cbf;
+    --background-700: #96a9cf;
+    --background-800: #b9c6df;
+    --background-900: #dce2ef;
+    --background-950: #eef1f7;
+    
+    --primary-50: #070a12;
+    --primary-100: #0f1424;
+    --primary-200: #1e2848;
+    --primary-300: #2c3c6d;
+    --primary-400: #3b5191;
+    --primary-500: #4a65b5;
+    --primary-600: #6e84c4;
+    --primary-700: #92a2d3;
+    --primary-800: #b7c1e1;
+    --primary-900: #dbe0f0;
+    --primary-950: #edf0f8;
+    
+    --secondary-50: #070a13;
+    --secondary-100: #0e1425;
+    --secondary-200: #1c274a;
+    --secondary-300: #293b70;
+    --secondary-400: #374f95;
+    --secondary-500: #4562ba;
+    --secondary-600: #6a82c8;
+    --secondary-700: #8fa1d6;
+    --secondary-800: #b5c0e3;
+    --secondary-900: #dae0f1;
+    --secondary-950: #eceff8;
+    
+    --accent-50: #060a13;
+    --accent-100: #0d1326;
+    --accent-200: #19264d;
+    --accent-300: #263973;
+    --accent-400: #334c99;
+    --accent-500: #4060bf;
+    --accent-600: #667fcc;
+    --accent-700: #8c9fd9;
+    --accent-800: #b3bfe6;
+    --accent-900: #d9dff2;
+    --accent-950: #eceff9;
+  }
+}
+

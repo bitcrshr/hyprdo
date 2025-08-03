@@ -17,6 +17,13 @@ config :hyprdo, HyprdoWeb.Endpoint,
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:hyprdo, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:hyprdo, ~w(--watch)]}
+  ],
+  live_reload: [
+    interval: 100,
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
+      ~r{lib/hyprdo_web/.*(ex)$},
+    ]
   ]
 
 # ## SSL Support

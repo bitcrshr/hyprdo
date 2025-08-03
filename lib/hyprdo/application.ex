@@ -17,6 +17,7 @@ defmodule Hyprdo.Application do
       # Start a worker by calling: Hyprdo.Worker.start_link(arg)
       # {Hyprdo.Worker, arg},
       # Start to serve requests, typically the last entry
+      Scheduler,
       GrpcReflection,
       {
         GRPC.Server.Supervisor, [
